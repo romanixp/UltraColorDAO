@@ -1,0 +1,34 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package test.formaPago;
+
+
+
+
+import dao.DAOFactory;
+import dao.design.IFormaPagoDAO;
+import dao.to.FormaPagoTO;
+/**
+ *
+ * @author Sistemas
+ */
+public class Test03 {  //Eliminar
+    public static void main(String[] args) {
+        //datos
+        FormaPagoTO formaPagoTO = new FormaPagoTO();
+        formaPagoTO.setCodigo("05");
+
+        //formaPagoTO.setObservaciones(null);
+        try {
+            IFormaPagoDAO formaPagoDAO = DAOFactory.getInstance().getFormaPagoDAO();
+            formaPagoDAO.eliminar(formaPagoTO.getCodigo());
+            System.out.println("Código Eliminado: " + formaPagoTO.getCodigo());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    } // main 
+    
+}
